@@ -1,0 +1,39 @@
+﻿@model GAMF_L.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Törlés";
+}
+
+<h1>Törlés</h1>
+
+<h3>Biztos törölni akarod?</h3>
+<div>
+    <h4>Enrollment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Courses.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Students)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Students.FirstMidName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EnrollmentId" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-action="Index">Vissza a listához</a>
+    </form>
+</div>

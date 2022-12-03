@@ -1,0 +1,46 @@
+﻿@model IEnumerable<StudentFullCreditVM>
+
+@{
+    ViewData["Title"] = "StudentFullCredit";
+}
+
+<h2>Hallgatók riport</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Hallgató keresztneve
+            </th>
+            <th>
+                Szerzett vezetékneve
+            </th>
+            <th>
+                Tárgy neve
+            </th>
+            <th>
+                Szerzett kreditek
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.StudentFirstName
+                </td>
+                <td>
+                    @item.StudentLastName
+                </td>
+                <td>
+                    @item.CourseName
+                </td>
+                <td>
+                    @item.CreditCount
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@using System.Reflection
+@using System.ComponentModel
+@model GAMF_L.Models.Course
+
+@{
+    ViewData["Title"] = "Törlés";
+    var course = typeof(Course).GetCustomAttribute<DisplayNameAttribute>()?.DisplayName;
+}
+
+<h1>Törlés</h1>
+
+<h3>Tényleg törölni akarja?</h3>
+<div>
+    <h4>@Html.DisplayName(course)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Credits)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CourseId" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-action="Index">Vissza a listához</a>
+    </form>
+</div>
